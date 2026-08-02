@@ -1,7 +1,7 @@
 name: Release
 
 # Required repository secrets:
-#   GPG_PRIVATE_KEY    - base64-encoded (or armored) ASCII export of the signing private key
+#   GPG_PRIVATE_KEY    - signing private key: ASCII-armored export OR base64-encoded armored export
 #   GPG_PASSPHRASE     - passphrase of the signing key
 #   CENTRAL_USERNAME   - Sonatype Central publishing token username
 #   CENTRAL_PASSWORD   - Sonatype Central publishing token password
@@ -25,6 +25,7 @@ env:
 
 jobs:
   release:
+    if: ${{ !github.event.deleted }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,8 +40,17 @@ jobs:
           server-id: central
           server-username: MAVEN_CENTRAL_USERNAME
           server-password: MAVEN_CENTRAL_PASSWORD
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
+      - name: Import GPG signing key
+        run: |
+          if printf '%s' "$GPG_PRIVATE_KEY" | grep -q 'BEGIN PGP PRIVATE KEY'; then
+            printf '%s\n' "$GPG_PRIVATE_KEY" | gpg --batch --yes --import
+          else
+            printf '%s' "$GPG_PRIVATE_KEY" | base64 -d | gpg --batch --yes --import
+          fi
+          gpg --list-secret-keys --keyid-format long 538F5DD0E34979FA4322EF2A6CA1F8B6D4E9F9EB
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
       - name: Build, test, sign, and publish to Maven Central
         run: mvn -B -P release deploy
