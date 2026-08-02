@@ -909,6 +909,8 @@ public enum LucideIcon {
 
     CIRCLE_EQUAL("circle-equal"),
 
+    CIRCLE_EURO("circle-euro"),
+
     CIRCLE_FADING_ARROW_UP("circle-fading-arrow-up"),
 
     CIRCLE_FADING_PLUS("circle-fading-plus"),
@@ -1201,9 +1203,21 @@ public enum LucideIcon {
 
     DATABASE("database"),
 
+    DATABASE_ARROW_DOWN("database-arrow-down"),
+
+    DATABASE_ARROW_UP("database-arrow-up"),
+
     DATABASE_BACKUP("database-backup"),
 
+    DATABASE_CHECK("database-check"),
+
+    DATABASE_MINUS("database-minus"),
+
+    DATABASE_PLUS("database-plus"),
+
     DATABASE_SEARCH("database-search"),
+
+    DATABASE_X("database-x"),
 
     DATABASE_ZAP("database-zap"),
 
@@ -2067,6 +2081,8 @@ public enum LucideIcon {
 
     LAYOUT_DASHBOARD("layout-dashboard"),
 
+    LAYOUT_FREEFORM("layout-freeform"),
+
     LAYOUT_GRID("layout-grid"),
 
     LAYOUT_LIST("layout-list"),
@@ -2353,7 +2369,11 @@ public enum LucideIcon {
 
     MIC_2("mic-2"),
 
+    MIC_AUDIO_LINES("mic-audio-lines"),
+
     MIC_OFF("mic-off"),
+
+    MIC_SIGNAL("mic-signal"),
 
     MIC_VOCAL("mic-vocal"),
 
@@ -2418,6 +2438,8 @@ public enum LucideIcon {
     MORE_HORIZONTAL("more-horizontal"),
 
     MORE_VERTICAL("more-vertical"),
+
+    MOSQUE("mosque"),
 
     MOTORBIKE("motorbike"),
 
@@ -2621,6 +2643,8 @@ public enum LucideIcon {
 
     PANELS_TOP_LEFT("panels-top-left"),
 
+    PAPER_BAG("paper-bag"),
+
     PAPERCLIP("paperclip"),
 
     PARASOL("parasol"),
@@ -2682,6 +2706,8 @@ public enum LucideIcon {
     PERCENT_SQUARE("percent-square"),
 
     PERSON_STANDING("person-standing"),
+
+    PHI("phi"),
 
     PHILIPPINE_PESO("philippine-peso"),
 
@@ -2919,11 +2945,15 @@ public enum LucideIcon {
 
     ROTATE_CCW("rotate-ccw"),
 
+    ROTATE_CCW_CLOCK("rotate-ccw-clock"),
+
     ROTATE_CCW_KEY("rotate-ccw-key"),
 
     ROTATE_CCW_SQUARE("rotate-ccw-square"),
 
     ROTATE_CW("rotate-cw"),
+
+    ROTATE_CW_FADING_CLOCK("rotate-cw-fading-clock"),
 
     ROTATE_CW_SQUARE("rotate-cw-square"),
 
@@ -2985,6 +3015,8 @@ public enum LucideIcon {
 
     SCAN_BARCODE("scan-barcode"),
 
+    SCAN_BOX("scan-box"),
+
     SCAN_EYE("scan-eye"),
 
     SCAN_FACE("scan-face"),
@@ -2996,6 +3028,8 @@ public enum LucideIcon {
     SCAN_QR_CODE("scan-qr-code"),
 
     SCAN_SEARCH("scan-search"),
+
+    SCAN_SQUARE("scan-square"),
 
     SCAN_TEXT("scan-text"),
 
@@ -3057,6 +3091,8 @@ public enum LucideIcon {
 
     SERVER_OFF("server-off"),
 
+    SERVER_PLUS("server-plus"),
+
     SETTINGS("settings"),
 
     SETTINGS_2("settings-2"),
@@ -3090,6 +3126,8 @@ public enum LucideIcon {
     SHIELD_ELLIPSIS("shield-ellipsis"),
 
     SHIELD_HALF("shield-half"),
+
+    SHIELD_KEYHOLE("shield-keyhole"),
 
     SHIELD_MINUS("shield-minus"),
 
@@ -3330,6 +3368,8 @@ public enum LucideIcon {
     SQUARE_MINUS("square-minus"),
 
     SQUARE_MOUSE_POINTER("square-mouse-pointer"),
+
+    SQUARE_OFF("square-off"),
 
     SQUARE_PARKING("square-parking"),
 
@@ -3786,6 +3826,8 @@ public enum LucideIcon {
     USER_ROUND_X("user-round-x"),
 
     USER_SEARCH("user-search"),
+
+    USER_SHIELD("user-shield"),
 
     USER_SQUARE("user-square"),
 

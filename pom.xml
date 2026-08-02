@@ -6,7 +6,7 @@
 
 	<groupId>io.github.dr0idbot</groupId>
 	<artifactId>v-lucide-icons</artifactId>
-	<version>1.0.0</version>
+	<version>1.28.0</version>
 	<packaging>jar</packaging>
 	<name>Vaadin Lucide Icons</name>
 	<description>Lucide icon integration for Vaadin - provides LucideIcon enum
