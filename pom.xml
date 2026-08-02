@@ -31,10 +31,10 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:https://github.com/dr0idbot/vaadin-lucide-icons.git</connection>
+		<connection>scm:git:https://github.com/dr0idbot/v-lucide-icons.git</connection>
 		<developerConnection>
-			scm:git:https://github.com/dr0idbot/vaadin-lucide-icons.git</developerConnection>
-		<url>https://github.com/dr0idbot/vaadin-lucide-icons</url>
+			scm:git:https://github.com/dr0idbot/v-lucide-icons.git</developerConnection>
+		<url>https://github.com/dr0idbot/v-lucide-icons</url>
 	</scm>
 
 	<properties>
@@ -167,7 +167,7 @@
 								<arg>--pinentry-mode</arg>
 								<arg>loopback</arg>
 							</gpgArguments>
-							<keyname>458E6EFE150A215EB905A1E1F76DDC7A343DD849</keyname>
+							<keyname>538F5DD0E34979FA4322EF2A6CA1F8B6D4E9F9EB</keyname>
 						</configuration>
 					</plugin>
 				</plugins>
