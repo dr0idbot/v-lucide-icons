@@ -121,6 +121,8 @@ public enum LucideIcon {
 
     ANCHOR("anchor"),
 
+    ANGLE("angle"),
+
     ANGRY("angry"),
 
     ANNOYED("annoyed"),
@@ -300,6 +302,10 @@ public enum LucideIcon {
     ATOM("atom"),
 
     AUDIO_LINES("audio-lines"),
+
+    AUDIO_LINES_OFF("audio-lines-off"),
+
+    AUDIO_LINES_X("audio-lines-x"),
 
     AUDIO_WAVEFORM("audio-waveform"),
 
@@ -599,6 +605,8 @@ public enum LucideIcon {
 
     BRICK_WALL_SHIELD("brick-wall-shield"),
 
+    BRIDGE("bridge"),
+
     BRIEFCASE("briefcase"),
 
     BRIEFCASE_BUSINESS("briefcase-business"),
@@ -610,6 +618,10 @@ public enum LucideIcon {
     BRING_TO_FRONT("bring-to-front"),
 
     BROCCOLI("broccoli"),
+
+    BROOM("broom"),
+
+    BROOM_SPARKLES("broom-sparkles"),
 
     BRUSH("brush"),
 
@@ -689,6 +701,10 @@ public enum LucideIcon {
 
     CAMERA_OFF("camera-off"),
 
+    CAN("can"),
+
+    CAN_SODA("can-soda"),
+
     CANDLESTICK_CHART("candlestick-chart"),
 
     CANDY("candy"),
@@ -706,6 +722,8 @@ public enum LucideIcon {
     CAPTIONS_OFF("captions-off"),
 
     CAR("car"),
+
+    CAR_BATTERY("car-battery"),
 
     CAR_FRONT("car-front"),
 
@@ -1179,6 +1197,16 @@ public enum LucideIcon {
 
     CREDIT_CARD("credit-card"),
 
+    CREDIT_CARD_CHECK("credit-card-check"),
+
+    CREDIT_CARD_MINUS("credit-card-minus"),
+
+    CREDIT_CARD_PLUS("credit-card-plus"),
+
+    CREDIT_CARD_READER("credit-card-reader"),
+
+    CREDIT_CARD_X("credit-card-x"),
+
     CROISSANT("croissant"),
 
     CROP("crop"),
@@ -1287,6 +1315,8 @@ public enum LucideIcon {
 
     DOOR_OPEN("door-open"),
 
+    DOOR_STAIRWELL("door-stairwell"),
+
     DOT("dot"),
 
     DOT_SQUARE("dot-square"),
@@ -1337,11 +1367,15 @@ public enum LucideIcon {
 
     EGG_OFF("egg-off"),
 
+    EJECT("eject"),
+
     ELLIPSE("ellipse"),
 
     ELLIPSIS("ellipsis"),
 
     ELLIPSIS_VERTICAL("ellipsis-vertical"),
+
+    ENGINE("engine"),
 
     EQUAL("equal"),
 
@@ -1370,6 +1404,20 @@ public enum LucideIcon {
     EYE_DASHED("eye-dashed"),
 
     EYE_OFF("eye-off"),
+
+    FACE_ANGRY("face-angry"),
+
+    FACE_EXPRESSIONLESS("face-expressionless"),
+
+    FACE_GRINNING("face-grinning"),
+
+    FACE_NEUTRAL("face-neutral"),
+
+    FACE_SLIGHTLY_FROWNING("face-slightly-frowning"),
+
+    FACE_SLIGHTLY_SMILING("face-slightly-smiling"),
+
+    FACE_SLIGHTLY_SMILING_PLUS("face-slightly-smiling-plus"),
 
     FACTORY("factory"),
 
@@ -1709,6 +1757,8 @@ public enum LucideIcon {
 
     FUNNEL_X("funnel-x"),
 
+    GALAXY("galaxy"),
+
     GALLERY_HORIZONTAL("gallery-horizontal"),
 
     GALLERY_HORIZONTAL_END("gallery-horizontal-end"),
@@ -1738,6 +1788,10 @@ public enum LucideIcon {
     GEM("gem"),
 
     GEORGIAN_LARI("georgian-lari"),
+
+    GERM("germ"),
+
+    GERM_OFF("germ-off"),
 
     GHOST("ghost"),
 
@@ -2067,11 +2121,19 @@ public enum LucideIcon {
 
     LAUGH("laugh"),
 
+    LAYER_ARROW_DOWN("layer-arrow-down"),
+
+    LAYER_ARROW_UP("layer-arrow-up"),
+
     LAYERS("layers"),
 
     LAYERS_2("layers-2"),
 
     LAYERS_3("layers-3"),
+
+    LAYERS_ARROW_DOWN("layers-arrow-down"),
+
+    LAYERS_ARROW_UP("layers-arrow-up"),
 
     LAYERS_MINUS("layers-minus"),
 
@@ -2119,6 +2181,8 @@ public enum LucideIcon {
 
     LIGHTBULB_OFF("lightbulb-off"),
 
+    LIGHTHOUSE("lighthouse"),
+
     LINE_CHART("line-chart"),
 
     LINE_DOT_RIGHT_HORIZONTAL("line-dot-right-horizontal"),
@@ -2142,6 +2206,8 @@ public enum LucideIcon {
     LIST_CHEVRONS_DOWN_UP("list-chevrons-down-up"),
 
     LIST_CHEVRONS_UP_DOWN("list-chevrons-up-down"),
+
+    LIST_CLOCK("list-clock"),
 
     LIST_COLLAPSE("list-collapse"),
 
@@ -2219,11 +2285,17 @@ public enum LucideIcon {
 
     MAIL("mail"),
 
+    MAIL_BADGE("mail-badge"),
+
     MAIL_CHECK("mail-check"),
+
+    MAIL_CLOCK("mail-clock"),
 
     MAIL_MINUS("mail-minus"),
 
     MAIL_OPEN("mail-open"),
+
+    MAIL_PEN("mail-pen"),
 
     MAIL_PLUS("mail-plus"),
 
@@ -2309,6 +2381,8 @@ public enum LucideIcon {
 
     MESSAGE_CIRCLE_DASHED("message-circle-dashed"),
 
+    MESSAGE_CIRCLE_DASHED_CHECK("message-circle-dashed-check"),
+
     MESSAGE_CIRCLE_HEART("message-circle-heart"),
 
     MESSAGE_CIRCLE_MORE("message-circle-more"),
@@ -2383,6 +2457,8 @@ public enum LucideIcon {
 
     MICROWAVE("microwave"),
 
+    MIDI_PORT("midi-port"),
+
     MILESTONE("milestone"),
 
     MILK("milk"),
@@ -2434,6 +2510,10 @@ public enum LucideIcon {
     MOON("moon"),
 
     MOON_STAR("moon-star"),
+
+    MOP("mop"),
+
+    MOP_SPARKLES("mop-sparkles"),
 
     MORE_HORIZONTAL("more-horizontal"),
 
@@ -2775,6 +2855,12 @@ public enum LucideIcon {
 
     PLAY_SQUARE("play-square"),
 
+    PLAYING_CARD("playing-card"),
+
+    PLAYING_CARDS("playing-cards"),
+
+    PLAYING_CARDS_FAN("playing-cards-fan"),
+
     PLUG("plug"),
 
     PLUG_2("plug-2"),
@@ -2930,6 +3016,10 @@ public enum LucideIcon {
     RIBBON("ribbon"),
 
     ROAD("road"),
+
+    ROBOT_ARM("robot-arm"),
+
+    ROBOT_VACUUM("robot-vacuum"),
 
     ROCKET("rocket"),
 
@@ -3129,6 +3219,8 @@ public enum LucideIcon {
 
     SHIELD_KEYHOLE("shield-keyhole"),
 
+    SHIELD_LOCK("shield-lock"),
+
     SHIELD_MINUS("shield-minus"),
 
     SHIELD_OFF("shield-off"),
@@ -3145,6 +3237,8 @@ public enum LucideIcon {
 
     SHIP("ship"),
 
+    SHIP_CARGO("ship-cargo"),
+
     SHIP_WHEEL("ship-wheel"),
 
     SHIRT("shirt"),
@@ -3155,6 +3249,10 @@ public enum LucideIcon {
 
     SHOPPING_CART("shopping-cart"),
 
+    SHOPPING_CART_MINUS("shopping-cart-minus"),
+
+    SHOPPING_CART_PLUS("shopping-cart-plus"),
+
     SHOVEL("shovel"),
 
     SHOWER_HEAD("shower-head"),
@@ -3162,6 +3260,8 @@ public enum LucideIcon {
     SHREDDER("shredder"),
 
     SHRIMP("shrimp"),
+
+    SHRIMP_OFF("shrimp-off"),
 
     SHRINK("shrink"),
 
@@ -3347,11 +3447,15 @@ public enum LucideIcon {
 
     SQUARE_DASHED_TOP_SOLID("square-dashed-top-solid"),
 
+    SQUARE_DIMENSIONS("square-dimensions"),
+
     SQUARE_DIVIDE("square-divide"),
 
     SQUARE_DOT("square-dot"),
 
     SQUARE_EQUAL("square-equal"),
+
+    SQUARE_EXCLAMATION_POINT("square-exclamation-point"),
 
     SQUARE_FUNCTION("square-function"),
 
@@ -3414,6 +3518,8 @@ public enum LucideIcon {
     SQUARE_STOP("square-stop"),
 
     SQUARE_TERMINAL("square-terminal"),
+
+    SQUARE_TEXT("square-text"),
 
     SQUARE_USER("square-user"),
 
@@ -3677,6 +3783,8 @@ public enum LucideIcon {
 
     TRAFFIC_CONE("traffic-cone"),
 
+    TRAILER("trailer"),
+
     TRAIN("train"),
 
     TRAIN_FRONT("train-front"),
@@ -3775,6 +3883,8 @@ public enum LucideIcon {
 
     USB("usb"),
 
+    USB_C_PORT("usb-c-port"),
+
     USER("user"),
 
     USER_2("user-2"),
@@ -3857,6 +3967,8 @@ public enum LucideIcon {
 
     VAULT("vault"),
 
+    VECTOR_POLYGON("vector-polygon"),
+
     VECTOR_SQUARE("vector-square"),
 
     VEGAN("vegan"),
@@ -3880,6 +3992,10 @@ public enum LucideIcon {
     VIDEOTAPE("videotape"),
 
     VIEW("view"),
+
+    VIRUS("virus"),
+
+    VIRUS_OFF("virus-off"),
 
     VOICEMAIL("voicemail"),
 
@@ -3948,6 +4064,8 @@ public enum LucideIcon {
     WHEAT("wheat"),
 
     WHEAT_OFF("wheat-off"),
+
+    WHISTLE("whistle"),
 
     WHOLE_WORD("whole-word"),
 
