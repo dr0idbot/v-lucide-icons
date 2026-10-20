@@ -43,7 +43,7 @@ python3 scripts/generate_icons.py --version <lucide-static-version>
 - Requires Python 3.10+ (standard library only; no Node/npm).
 - Rewrites the SVG assets, `LucideIcon.java`, and `NOTICE` deterministically.
 - Commit the regenerated files together with a version bump, following the
-  release process.
+  release process in [RELEASE.md](RELEASE.md).
 
 ## Reporting Issues
 

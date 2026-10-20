@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `setAriaLabel(String)` / `getAriaLabel()` convenience methods on
   `LucideSvgIcon`.
 - Maven Wrapper (`mvnw`) for reproducible builds.
+- `RELEASE.md` documenting the Lucide sync and release procedure.
 
 ### Changed
 
