@@ -1,10 +1,13 @@
 # Vaadin Lucide Icons
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.dr0idbot/v-lucide-icons)](https://central.sonatype.com/artifact/io.github.dr0idbot/v-lucide-icons)
+[![CI](https://github.com/dr0idbot/v-lucide-icons/actions/workflows/ci.yml/badge.svg)](https://github.com/dr0idbot/v-lucide-icons/actions/workflows/ci.yml)
 
-Server-side [Lucide](https://lucide.dev) icon integration for Vaadin 24+ (Java 21+).
+Server-side [Lucide](https://lucide.dev) icon integration for **Vaadin 24.2+ and Vaadin 25+**, **Java 17+**.
 
 Renders icons through the native `<vaadin-icon>` web component via Vaadin's `SvgIcon` class. SVGs are served as static classpath resources — no inline SVG injection.
+
+> **Disclaimer:** This is an independent community add-on. It is not affiliated with, endorsed by, or sponsored by the Lucide project or Vaadin Ltd.
 
 ## Add the Dependency
 
@@ -12,7 +15,7 @@ Renders icons through the native `<vaadin-icon>` web component via Vaadin's `Svg
 <dependency>
     <groupId>io.github.dr0idbot</groupId>
     <artifactId>v-lucide-icons</artifactId>
-    <version>1.0.0</version>
+    <version>1.60.0</version>
 </dependency>
 ```
 
@@ -29,8 +32,8 @@ icon.setSize("48px");               // width & height
 icon.setStrokeWidth(1.5);           // SVG stroke width
 
 // Accessibility
-icon.setDecorative(true);                           // hide from screen readers
-icon.getElement().setAttribute("aria-label", "Star"); // labelled
+icon.setDecorative(true);           // hide from screen readers
+icon.setAriaLabel("Star rating");   // labelled
 ```
 
 ## API
@@ -41,30 +44,37 @@ icon.getElement().setAttribute("aria-label", "Star"); // labelled
 | `setSize(String)` | `AbstractIcon` | Width and height (e.g. `"24px"`, `"2em"`) |
 | `setStrokeWidth(double)` | `LucideSvgIcon` | SVG stroke width |
 | `setDecorative(boolean)` | `LucideSvgIcon` | Mark as presentational |
+| `setAriaLabel(String)` / `getAriaLabel()` | `LucideSvgIcon` | Accessible name |
 
 ### Public Types
 
-- **`LucideIcon`** — enum of all 1986 Lucide icons
+- **`LucideIcon`** — enum of all 2,167 Lucide icons (lucide-static **1.60.0**)
 - **`LucideSvgIcon`** — extends Vaadin's `SvgIcon`
 - **`LucideIconFactory`** — creates and validates icon instances
 
 ## Updating Icons
 
-The icon enum and SVGs are regenerated from the [lucide-static](https://www.npmjs.com/package/lucide-static) npm package. The generator lives in the [tools repository](https://github.com/dr0idbot/vaadin-lucide-icons).
+The icon set, `LucideIcon` enum, and `NOTICE` are regenerated with a single
+script. No Node.js, npm, Maven, or external tool repositories are required —
+only Python 3.10+ (standard library only):
 
-1. Clone the tools repo and bump `lucide-static` in `v-lucide-icons-generator/package.json`
-2. Run the generator:
-   ```
-   mvn -pl v-lucide-icons-generator compile exec:java
-   ```
-3. Copy the output to this project:
-   ```bash
-   cp -r ../vaadin-lucide-icons/generated/resources/* src/main/resources/
-   cp -r ../vaadin-lucide-icons/generated/java/* src/main/java/
-   ```
-4. Verify counts and commit
+```bash
+python3 scripts/generate_icons.py --version <lucide-static-version>
+```
+
+- Downloads the exact versioned `lucide-static` tarball from the npm registry.
+- Rewrites `src/main/resources/META-INF/resources/lucide/*.svg`,
+  `src/main/java/io/github/dr0idbot/vlucide/LucideIcon.java`, and `NOTICE`
+  deterministically; stale icons are removed automatically.
+- Run it, commit the regenerated files, and release as noted below.
+
+A release's version always mirrors the upstream `lucide-static` version from
+which its icons are sourced (e.g. add-on `1.60.0` = Lucide `1.60.0` assets).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
-This project is licensed under the Apache 2.0 License.
-Lucide icons are licensed under the ISC License.
+- This project's code is licensed under the **Apache License, Version 2.0** — see [`LICENSE`](LICENSE).
+- Bundled Lucide icons are licensed under the **ISC License**; icons derived
+  from Feather are additionally subject to Cole Bemis' **MIT License**. Full
+  attributions are in [`NOTICE`](NOTICE).

@@ -3,6 +3,7 @@ package io.github.dr0idbot.vlucide;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -70,11 +71,55 @@ class LucideSvgIconTest {
 	}
 
 	@Test
+	@DisplayName("constructor rejects null icon name")
+	void constructorRejectsNull() {
+		assertThrows(IllegalArgumentException.class, () -> new LucideSvgIcon(null));
+	}
+
+	@Test
+	@DisplayName("constructor rejects blank icon name")
+	void constructorRejectsBlank() {
+		assertThrows(IllegalArgumentException.class, () -> new LucideSvgIcon("   "));
+	}
+
+	@Test
+	@DisplayName("constructor rejects uppercase icon name")
+	void constructorRejectsUppercase() {
+		assertThrows(IllegalArgumentException.class, () -> new LucideSvgIcon("SAVE"));
+	}
+
+	@Test
+	@DisplayName("constructor rejects icon name with spaces or path separators")
+	void constructorRejectsSpacesAndSeparators() {
+		assertThrows(IllegalArgumentException.class, () -> new LucideSvgIcon("foo bar"));
+		assertThrows(IllegalArgumentException.class, () -> new LucideSvgIcon("../evil"));
+		assertThrows(IllegalArgumentException.class, () -> new LucideSvgIcon("$.png"));
+	}
+
+	@Test
+	@DisplayName("constructor accepts valid names with digits and dashes")
+	void constructorAcceptsValidNames() {
+		LucideSvgIcon icon = new LucideSvgIcon("arrow-big-up");
+		assertEquals("lucide/arrow-big-up.svg", icon.getSrc());
+	}
+
+	@Test
 	@DisplayName("setAriaLabel sets the aria-label attribute")
 	void setAriaLabel() {
 		LucideSvgIcon icon = LucideIconFactory.create("save");
-		icon.getElement().setAttribute("aria-label", "Save icon");
+		icon.setAriaLabel("Save icon");
+		assertEquals("Save icon", icon.getAriaLabel());
 		assertEquals("Save icon", icon.getElement().getAttribute("aria-label"));
+	}
+
+	@Test
+	@DisplayName("setAriaLabel(null) removes the aria-label attribute")
+	void ariaLabelRemove() {
+		LucideSvgIcon icon = LucideIconFactory.create("save");
+		icon.setAriaLabel("Save icon");
+		icon.setAriaLabel(null);
+		assertNull(icon.getAriaLabel());
+		assertNull(icon.getElement().getAttribute("aria-label"));
 	}
 
 	@Test

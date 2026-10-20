@@ -6,12 +6,12 @@
 
 	<groupId>io.github.dr0idbot</groupId>
 	<artifactId>v-lucide-icons</artifactId>
-	<version>1.41.0</version>
+	<version>1.60.0</version>
 	<packaging>jar</packaging>
 	<name>Vaadin Lucide Icons</name>
 	<description>Lucide icon integration for Vaadin - provides LucideIcon enum
 		and LucideSvgIcon component</description>
-	<url>https://github.com/dr0idbot/vaadin-lucide-icons</url>
+	<url>https://github.com/dr0idbot/v-lucide-icons</url>
 
 	<licenses>
 		<license>
@@ -26,7 +26,7 @@
 			<id>dr0idbot</id>
 			<name>Droidbot</name>
 			<email>droidbot@proton.me</email>
-			<url>dr0idbot.github.io</url>
+			<url>https://dr0idbot.github.io</url>
 		</developer>
 	</developers>
 
@@ -40,7 +40,7 @@
 	<properties>
 		<vaadin.version>25.1.8</vaadin.version>
 		<junit.version>5.12.2</junit.version>
-		<maven.compiler.release>21</maven.compiler.release>
+		<maven.compiler.release>17</maven.compiler.release>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
@@ -61,6 +61,19 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>${project.basedir}</directory>
+				<targetPath>META-INF</targetPath>
+				<includes>
+					<include>LICENSE</include>
+					<include>NOTICE</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -167,7 +180,6 @@
 								<arg>--pinentry-mode</arg>
 								<arg>loopback</arg>
 							</gpgArguments>
-							<keyname>538F5DD0E34979FA4322EF2A6CA1F8B6D4E9F9EB</keyname>
 						</configuration>
 					</plugin>
 				</plugins>

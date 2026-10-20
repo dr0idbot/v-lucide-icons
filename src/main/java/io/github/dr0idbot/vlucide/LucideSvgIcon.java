@@ -1,5 +1,7 @@
 package io.github.dr0idbot.vlucide;
 
+import java.util.regex.Pattern;
+
 import com.vaadin.flow.component.icon.SvgIcon;
 
 /**
@@ -18,14 +20,28 @@ public class LucideSvgIcon extends SvgIcon {
 
 	private static final String RESOURCE_PATH = "lucide/";
 	private static final double DEFAULT_STROKE_WIDTH = 2.0;
+	private static final Pattern ICON_NAME_PATTERN = Pattern.compile("^[a-z0-9-]+$");
 
 	/**
 	 * Creates a new LucideSvgIcon for the given icon name.
 	 *
-	 * @param iconName the Lucide icon file name (without .svg extension)
+	 * @param iconName the Lucide icon file name (without .svg extension);
+	 *                 lowercase letters, digits, and dashes only
+	 * @throws IllegalArgumentException if the icon name is null, blank, or
+	 *                                  contains characters other than
+	 *                                  lowercase letters, digits, and dashes
 	 */
 	public LucideSvgIcon(String iconName) {
+		validateIconName(iconName);
 		setSrc(RESOURCE_PATH + iconName + ".svg");
+	}
+
+	private static void validateIconName(String iconName) {
+		if (iconName == null || iconName.isBlank() || !ICON_NAME_PATTERN.matcher(iconName).matches()) {
+			throw new IllegalArgumentException(
+					"Invalid Lucide icon name: " + iconName
+					+ " (expected lowercase letters, digits, or dashes, e.g. \"arrow-big-up\")");
+		}
 	}
 
 	/**
@@ -93,6 +109,35 @@ public class LucideSvgIcon extends SvgIcon {
 			getElement().removeAttribute("aria-hidden");
 			getElement().removeAttribute("role");
 		}
+	}
+
+	/**
+	 * Sets the accessible name of this icon via the {@code aria-label}
+	 * attribute.
+	 * <p>
+	 * Screen readers announce the label instead of the icon resource path.
+	 * Use this when the icon conveys information on its own; for purely
+	 * decorative icons, prefer {@link #setDecorative(boolean)} instead.
+	 *
+	 * @param label the accessible name, or {@code null} to remove the
+	 *              attribute
+	 */
+	public void setAriaLabel(String label) {
+		if (label == null) {
+			getElement().removeAttribute("aria-label");
+		} else {
+			getElement().setAttribute("aria-label", label);
+		}
+	}
+
+	/**
+	 * Returns the accessible name of this icon.
+	 *
+	 * @return the {@code aria-label} attribute value, or {@code null} if not
+	 *         set
+	 */
+	public String getAriaLabel() {
+		return getElement().getAttribute("aria-label");
 	}
 
 }
