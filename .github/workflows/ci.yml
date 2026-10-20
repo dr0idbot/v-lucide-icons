@@ -15,6 +15,11 @@ jobs:
       matrix:
         java: [17, 21]
         vaadin: ['25.1.8', '24.2.0', '24.6.6']
+        exclude:
+          # Vaadin 25 ships Java 21 bytecode (major 65) and cannot be
+          # compiled against from a JDK 17 build
+          - java: 17
+            vaadin: '25.1.8'
 
     steps:
     - uses: actions/checkout@v6

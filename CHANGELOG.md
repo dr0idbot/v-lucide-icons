@@ -21,6 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- CI matrix excludes the unsupported JDK 17 × Vaadin 25 combination (Vaadin 25
+  ships Java 21 bytecode); README documents the per-Vaadin Java requirement
+  (Java 17 for Vaadin 24.x, Java 21 for Vaadin 25).
 - Compiler release target lowered from Java 21 to **Java 17**, restoring
   compatibility with Vaadin 24 LTS / Spring Boot 3 on Java 17 runtimes.
 - CI now tests against JDK 17 and 21 across Vaadin 24.2, 24.6, and 25.1.
