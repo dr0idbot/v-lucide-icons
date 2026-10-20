@@ -8,7 +8,7 @@
 	<artifactId>v-lucide-icons</artifactId>
 	<version>1.60.0</version>
 	<packaging>jar</packaging>
-	<name>Vaadin Lucide Icons</name>
+	<name>Lucide Icons for Vaadin</name>
 	<description>Lucide icon integration for Vaadin - provides LucideIcon enum
 		and LucideSvgIcon component</description>
 	<url>https://github.com/dr0idbot/v-lucide-icons</url>
