@@ -15,7 +15,7 @@ Renders icons through the native `<vaadin-icon>` web component via Vaadin's `Svg
 <dependency>
     <groupId>io.github.dr0idbot</groupId>
     <artifactId>v-lucide-icons</artifactId>
-    <version>1.60.0</version>
+    <version>1.61.0</version>
 </dependency>
 ```
 
@@ -27,9 +27,12 @@ LucideIcon.SAVE.create();
 
 // Customize
 var icon = LucideIcon.STAR.create();
-icon.setColor("#ff6b00");           // via CSS color
+icon.setColor("#ff6b00");           // stroke color via CSS color
 icon.setSize("48px");               // width & height
 icon.setStrokeWidth(1.5);           // SVG stroke width
+icon.setFill("currentColor");       // fill paint (default: none)
+icon.setStrokeLinecap(LucideLineCap.SQUARE);    // BUTT | ROUND | SQUARE
+icon.setStrokeLinejoin(LucideLineJoin.MITER);   // BEVEL | MITER | ROUND
 
 // Accessibility
 icon.setDecorative(true);           // hide from screen readers
@@ -43,14 +46,24 @@ icon.setAriaLabel("Star rating");   // labelled
 | `setColor(String)` | `SvgIcon` | Icon color via CSS `color` |
 | `setSize(String)` | `AbstractIcon` | Width and height (e.g. `"24px"`, `"2em"`) |
 | `setStrokeWidth(double)` | `LucideSvgIcon` | SVG stroke width |
+| `setFill(String)` / `getFill()` | `LucideSvgIcon` | Fill paint, default `"none"` |
+| `setStrokeLinecap(LucideLineCap)` / `getStrokeLinecap()` | `LucideSvgIcon` | Stroke end cap: `BUTT` \| `ROUND` \| `SQUARE` |
+| `setStrokeLinejoin(LucideLineJoin)` / `getStrokeLinejoin()` | `LucideSvgIcon` | Vertex join: `BEVEL` \| `MITER` \| `ROUND` |
 | `setDecorative(boolean)` | `LucideSvgIcon` | Mark as presentational |
 | `setAriaLabel(String)` / `getAriaLabel()` | `LucideSvgIcon` | Accessible name |
 
+Customization is implemented via CSS custom properties
+(`--vaadin-icon-stroke-width`, `--lucide-fill`, `--lucide-stroke-linecap`,
+`--lucide-stroke-linejoin`) that override the var()-parameterized paint
+attributes baked into the generated SVG files; the property values inherit
+into the `<vaadin-icon>` shadow DOM on Vaadin 24.x and 25.x alike.
+
 ### Public Types
 
-- **`LucideIcon`** — enum of all 2,167 Lucide icons (lucide-static **1.60.0**)
+- **`LucideIcon`** — enum of all 2,171 Lucide icons (lucide-static **1.61.0**)
 - **`LucideSvgIcon`** — extends Vaadin's `SvgIcon`
 - **`LucideIconFactory`** — creates and validates icon instances
+- **`LucideLineCap`** / **`LucideLineJoin`** — stroke cap and join shapes
 
 ## Updating Icons
 
@@ -69,7 +82,7 @@ python3 scripts/generate_icons.py --version <lucide-static-version>
 - Run it, commit the regenerated files, and release as noted below.
 
 A release's version always mirrors the upstream `lucide-static` version from
-which its icons are sourced (e.g. add-on `1.60.0` = Lucide `1.60.0` assets).
+which its icons are sourced (e.g. add-on `1.61.0` = Lucide `1.61.0` assets).
 See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License

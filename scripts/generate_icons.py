@@ -13,6 +13,25 @@ upstream ``lucide-static`` npm package:
 Requires only the Python 3.10+ standard library. Generated files stay
 committed in Git; downstream builds need no Python, Node, or network.
 
+SVG paint model: default paint attributes are re-parameterized onto every
+shape element with CSS custom properties carrying the Lucide defaults as
+fallbacks:
+
+- ``fill="var(--lucide-fill, none)"``
+- ``stroke="currentColor"``
+- ``stroke-width="var(--vaadin-icon-stroke-width, 2)"``
+- ``stroke-linecap="var(--lucide-stroke-linecap, round)"``
+- ``stroke-linejoin="var(--lucide-stroke-linejoin, round)"``
+
+Shape-level attributes are required for compatibility with Vaadin 24.x,
+where ``<vaadin-icon>`` only copies ``viewBox`` and the inner shapes from
+the source SVG, never the root paint attributes (and its ``:host`` even
+declares ``fill: currentColor``). The fixed fallbacks likewise keep
+standalone usage (``<img src>``) rendering correctly without any of the
+variables set. Shape elements that already specify a paint attribute keep
+their explicit value (e.g. ``fill="currentColor"`` on 29 solid-inner
+spots) and only have the missing siblings added.
+
 Usage:
     python3 scripts/generate_icons.py                # latest stable release
     python3 scripts/generate_icons.py --version 1.41.0
@@ -27,6 +46,7 @@ import re
 import sys
 import tarfile
 import urllib.request
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 NPM_PACKAGE = "lucide-static"
@@ -37,6 +57,17 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SVG_DIR = PROJECT_ROOT / "src/main/resources/META-INF/resources/lucide"
 ENUM_FILE = PROJECT_ROOT / "src/main/java/io/github/dr0idbot/vlucide/LucideIcon.java"
 NOTICE_FILE = PROJECT_ROOT / "NOTICE"
+
+# CSS custom property parameterization of the default paint attributes.
+# The fallbacks mirror the Lucide canon so standalone usage (<img>, raw
+# file serving, the misc/ galleries) renders without any variable set.
+PAINT_DEFAULTS = [
+    ("fill", "var(--lucide-fill, none)"),
+    ("stroke", "currentColor"),
+    ("stroke-width", "var(--vaadin-icon-stroke-width, 2)"),
+    ("stroke-linecap", "var(--lucide-stroke-linecap, round)"),
+    ("stroke-linejoin", "var(--lucide-stroke-linejoin, round)"),
+]
 
 JAVA_RESERVED_WORDS = frozenset("""
 abstract assert boolean break byte case catch char class const continue
@@ -107,8 +138,9 @@ This is an independent community add-on. It is not affiliated with,
 endorsed by, or sponsored by the Lucide project, Lucide Icons, or Vaadin Ltd.
 
 This distribution bundles @@ICON_COUNT@@ SVG icon files reproduced with
-minor modifications (removal of upstream comments and root width/height
-attributes) from the "lucide-static" package
+modifications (removal of upstream comments and root width/height
+attributes; parameterization of the inline paint attributes by way of CSS
+custom properties) from the "lucide-static" package
 (https://www.npmjs.com/package/lucide-static) version @@VERSION@@, published
 by the Lucide project (https://lucide.dev). The upstream license is
 reproduced below, verbatim.
@@ -203,14 +235,45 @@ def extract_package(tarball: tarfile.TarFile) -> tuple[dict[str, str], str]:
 
 
 def normalize_svg(svg: str) -> str:
-    """Strip the license comment, XML declaration, and width/height."""
+    """Strip the license comment, XML declaration, and width/height, then
+    parameterize the paint attributes onto every shape element."""
     svg = XML_DECL_RE.sub("", svg)
     svg = COMMENT_RE.sub("", svg)
     svg = WIDTH_HEIGHT_RE.sub("", svg)
     svg = svg.replace("\r\n", "\n").replace("\r", "\n")
-    if not svg.endswith("\n"):
-        svg += "\n"
-    return svg
+
+    root = ET.fromstring(svg)
+    for element in root.iter():
+        element.tag = element.tag.rsplit("}", 1)[-1]
+
+    paint_names = frozenset(name for name, _ in PAINT_DEFAULTS)
+    for name in paint_names:
+        root.attrib.pop(name, None)
+
+    for shape in root:
+        paints = []
+        for name, default in PAINT_DEFAULTS:
+            paints.append((name, shape.attrib.pop(name, None) or default))
+        rest = dict(shape.attrib)
+        shape.attrib.clear()
+        shape.attrib.update(dict(paints + list(rest.items())))
+
+    def escape(value: str) -> str:
+        return value.replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;")
+
+    lines = ["<svg"]
+    root_attrs = list(root.attrib.items())
+    if root_attrs and root_attrs[0][0].startswith("class"):
+        root_attrs.insert(1, ("xmlns", "http://www.w3.org/2000/svg"))
+    else:
+        root_attrs.insert(0, ("xmlns", "http://www.w3.org/2000/svg"))
+    lines.extend(f'  {k}="{escape(v)}"' for k, v in root_attrs)
+    lines.append(">")
+    for shape in root:
+        attrs = " ".join(f'{k}="{escape(v)}"' for k, v in shape.attrib.items())
+        lines.append(f'  <{shape.tag} {attrs} />')
+    lines.append("</svg>")
+    return "\n".join(lines) + "\n"
 
 
 def to_constant(icon_name: str, reserved: frozenset[str]) -> str:

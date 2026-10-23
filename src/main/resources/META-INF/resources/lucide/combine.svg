@@ -2,16 +2,11 @@
   class="lucide lucide-combine"
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
 >
-  <path d="M14 3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1" />
-  <path d="M19 3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1" />
-  <path d="m7 15 3 3" />
-  <path d="m7 21 3-3H5a2 2 0 0 1-2-2v-2" />
-  <rect x="14" y="14" width="7" height="7" rx="1" />
-  <rect x="3" y="3" width="7" height="7" rx="1" />
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="M14 3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1" />
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="M19 3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1" />
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="m7 15 3 3" />
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="m7 21 3-3H5a2 2 0 0 1-2-2v-2" />
+  <rect fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" x="14" y="14" width="7" height="7" rx="1" />
+  <rect fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" x="3" y="3" width="7" height="7" rx="1" />
 </svg>

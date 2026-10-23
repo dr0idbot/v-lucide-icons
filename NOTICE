@@ -7,15 +7,16 @@ The full license text is provided in the LICENSE file.
 This is an independent community add-on. It is not affiliated with,
 endorsed by, or sponsored by the Lucide project, Lucide Icons, or Vaadin Ltd.
 
-This distribution bundles 2167 SVG icon files reproduced with
-minor modifications (removal of upstream comments and root width/height
-attributes) from the "lucide-static" package
-(https://www.npmjs.com/package/lucide-static) version 1.60.0, published
+This distribution bundles 2171 SVG icon files reproduced with
+modifications (removal of upstream comments and root width/height
+attributes; parameterization of the inline paint attributes by way of CSS
+custom properties) from the "lucide-static" package
+(https://www.npmjs.com/package/lucide-static) version 1.61.0, published
 by the Lucide project (https://lucide.dev). The upstream license is
 reproduced below, verbatim.
 
 ===========================================================================
-Third-party license (upstream lucide-static version 1.60.0)
+Third-party license (upstream lucide-static version 1.61.0)
 ===========================================================================
 
 ISC License

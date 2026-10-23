@@ -58,16 +58,110 @@ class LucideSvgIconTest {
 	}
 
 	@Test
+	@DisplayName("default fill is none")
+	void defaultFill() {
+		LucideSvgIcon icon = LucideIconFactory.create("save");
+		assertEquals("none", icon.getFill());
+		assertNull(icon.getStyle().get("--lucide-fill"));
+	}
+
+	@Test
+	@DisplayName("setFill sets the --lucide-fill variable")
+	void setFill() {
+		LucideSvgIcon icon = LucideIconFactory.create("save");
+		icon.setFill("red");
+		assertEquals("red", icon.getFill());
+		assertEquals("red", icon.getStyle().get("--lucide-fill"));
+	}
+
+	@Test
+	@DisplayName("setFill(null) restores the default fill")
+	void fillReset() {
+		LucideSvgIcon icon = LucideIconFactory.create("save");
+		icon.setFill("currentColor");
+		assertNotNull(icon.getStyle().get("--lucide-fill"));
+		icon.setFill(null);
+		assertEquals("none", icon.getFill());
+		assertNull(icon.getStyle().get("--lucide-fill"));
+	}
+
+	@Test
+	@DisplayName("default stroke-linecap is round")
+	void defaultStrokeLinecap() {
+		LucideSvgIcon icon = LucideIconFactory.create("save");
+		assertEquals(LucideLineCap.ROUND, icon.getStrokeLinecap());
+		assertNull(icon.getStyle().get("--lucide-stroke-linecap"));
+	}
+
+	@Test
+	@DisplayName("setStrokeLinecap iterates all cap shapes")
+	void setStrokeLinecap() {
+		LucideSvgIcon icon = LucideIconFactory.create("save");
+		for (LucideLineCap cap : LucideLineCap.values()) {
+			icon.setStrokeLinecap(cap);
+			assertEquals(cap, icon.getStrokeLinecap());
+			assertEquals(cap.getValue(), icon.getStyle().get("--lucide-stroke-linecap"));
+		}
+	}
+
+	@Test
+	@DisplayName("setStrokeLinecap(null) restores the default cap")
+	void strokeLinecapReset() {
+		LucideSvgIcon icon = LucideIconFactory.create("save");
+		icon.setStrokeLinecap(LucideLineCap.SQUARE);
+		assertNotNull(icon.getStyle().get("--lucide-stroke-linecap"));
+		icon.setStrokeLinecap(null);
+		assertNull(icon.getStyle().get("--lucide-stroke-linecap"));
+		assertEquals(LucideLineCap.ROUND, icon.getStrokeLinecap());
+	}
+
+	@Test
+	@DisplayName("default stroke-linejoin is round")
+	void defaultStrokeLinejoin() {
+		LucideSvgIcon icon = LucideIconFactory.create("save");
+		assertEquals(LucideLineJoin.ROUND, icon.getStrokeLinejoin());
+		assertNull(icon.getStyle().get("--lucide-stroke-linejoin"));
+	}
+
+	@Test
+	@DisplayName("setStrokeLinejoin iterates all join shapes")
+	void setStrokeLinejoin() {
+		LucideSvgIcon icon = LucideIconFactory.create("save");
+		for (LucideLineJoin join : LucideLineJoin.values()) {
+			icon.setStrokeLinejoin(join);
+			assertEquals(join, icon.getStrokeLinejoin());
+			assertEquals(join.getValue(), icon.getStyle().get("--lucide-stroke-linejoin"));
+		}
+	}
+
+	@Test
+	@DisplayName("setStrokeLinejoin(null) restores the default join")
+	void strokeLinejoinReset() {
+		LucideSvgIcon icon = LucideIconFactory.create("save");
+		icon.setStrokeLinejoin(LucideLineJoin.BEVEL);
+		assertNotNull(icon.getStyle().get("--lucide-stroke-linejoin"));
+		icon.setStrokeLinejoin(null);
+		assertNull(icon.getStyle().get("--lucide-stroke-linejoin"));
+		assertEquals(LucideLineJoin.ROUND, icon.getStrokeLinejoin());
+	}
+
+	@Test
 	@DisplayName("multiple customizations can be applied")
 	void multipleCustomizations() {
 		LucideSvgIcon icon = LucideIconFactory.create("save");
 		icon.setSize("48px");
 		icon.setColor("#ff0000");
 		icon.setStrokeWidth(1.5);
+		icon.setFill("currentColor");
+		icon.setStrokeLinecap(LucideLineCap.BUTT);
+		icon.setStrokeLinejoin(LucideLineJoin.MITER);
 		assertEquals("48px", icon.getStyle().get("width"));
 		assertEquals("48px", icon.getStyle().get("height"));
 		assertEquals("#ff0000", icon.getColor());
 		assertEquals("1.5", icon.getStyle().get("--vaadin-icon-stroke-width"));
+		assertEquals("currentColor", icon.getStyle().get("--lucide-fill"));
+		assertEquals("butt", icon.getStyle().get("--lucide-stroke-linecap"));
+		assertEquals("miter", icon.getStyle().get("--lucide-stroke-linejoin"));
 	}
 
 	@Test

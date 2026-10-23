@@ -3,8 +3,6 @@ package io.github.dr0idbot.vlucide;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Factory for creating {@link LucideSvgIcon} instances.
@@ -12,15 +10,12 @@ import java.util.concurrent.ConcurrentHashMap;
  * Icon components created by this factory load SVG content via the
  * {@code <vaadin-icon>} web component's {@code src} attribute.
  * SVG resources are served as static files from the classpath
- * ({@code META-INF/resources/lucide/}) and fetched by the browser.
- * <p>
- * The factory also provides optional in-memory caching of SVG
- * content for validation, testing, or metadata access.
+ * ({@code META-INF/resources/lucide/}) and fetched by the browser;
+ * the factory itself is stateless and does not cache anything.
  */
 public final class LucideIconFactory {
 
     private static final String RESOURCE_BASE = "META-INF/resources/lucide/";
-    private static final Map<String, String> SVG_CACHE = new ConcurrentHashMap<>();
 
     private LucideIconFactory() {
     }
@@ -46,10 +41,10 @@ public final class LucideIconFactory {
     }
 
     /**
-     * Returns the SVG content for the given icon name, loading and
-     * caching it from the classpath if not yet cached.
+     * Returns the SVG content for the given icon name, read directly from
+     * the classpath on every call.
      * <p>
-     * The cached content is the raw SVG markup as served to the browser.
+     * The returned content is the raw SVG markup as served to the browser.
      *
      * @param iconName the icon file name
      * @return the raw SVG markup
@@ -57,46 +52,6 @@ public final class LucideIconFactory {
      * @throws RuntimeException         if reading the resource fails
      */
     public static String getSvgContent(String iconName) {
-        return SVG_CACHE.computeIfAbsent(iconName, LucideIconFactory::loadSvg);
-    }
-
-    /**
-     * Checks whether an icon's SVG resource exists on the classpath.
-     *
-     * @param iconName the icon file name
-     * @return true if the resource exists at {@code META-INF/resources/lucide/<name>.svg}
-     */
-    public static boolean exists(String iconName) {
-        String path = RESOURCE_BASE + iconName + ".svg";
-        return LucideIconFactory.class.getClassLoader().getResource(path) != null;
-    }
-
-    /**
-     * Returns the number of cached SVG resources.
-     *
-     * @return cache size
-     */
-    public static int cacheSize() {
-        return SVG_CACHE.size();
-    }
-
-    /**
-     * Clears the internal SVG content cache.
-     */
-    public static void clearCache() {
-        SVG_CACHE.clear();
-    }
-
-    /**
-     * Evicts a single entry from the cache.
-     *
-     * @param iconName the icon name to evict
-     */
-    public static void evict(String iconName) {
-        SVG_CACHE.remove(iconName);
-    }
-
-    private static String loadSvg(String iconName) {
         String path = RESOURCE_BASE + iconName + ".svg";
         ClassLoader cl = LucideIconFactory.class.getClassLoader();
         try (InputStream is = cl.getResourceAsStream(path)) {
@@ -108,5 +63,16 @@ public final class LucideIconFactory {
         } catch (IOException e) {
             throw new RuntimeException("Failed to read Lucide icon: " + iconName, e);
         }
+    }
+
+    /**
+     * Checks whether an icon's SVG resource exists on the classpath.
+     *
+     * @param iconName the icon file name
+     * @return true if the resource exists at {@code META-INF/resources/lucide/<name>.svg}
+     */
+    public static boolean exists(String iconName) {
+        String path = RESOURCE_BASE + iconName + ".svg";
+        return LucideIconFactory.class.getClassLoader().getResource(path) != null;
     }
 }
