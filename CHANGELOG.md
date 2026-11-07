@@ -1,19 +1,13 @@
-## [Unreleased]
+## [1.70.0] - 2026-11-07
 
 ### Changed
 
-- Synced icon set with `lucide-static` 1.69.0 (2,317 icons; 4 icons added, no artwork changes, none removed).
-
-- Synced icon set with `lucide-static` 1.68.0 (2,313 icons; 17 icons added, artwork of none modified, none removed).
-
-- Synced icon set with `lucide-static` 1.67.0 (2,296 icons; 4 icons added, artwork of 3 existing icons modified, none removed).
-
-# Changelog
-
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+- Synced icon set with `lucide-static` 1.70.0 (2,322 icons; 5 icons added,
+  no artwork changes, none removed).
+- Stepwise snapshot syncs through `lucide-static` 1.67.0 (2,296 icons; 4 added,
+  artwork of 3 defined icons changed), 1.68.0 (2,313; 17 added), and 1.69.0
+  (2,317; 4 added) — snapshot tags `lucide-1.67.0` through `lucide-1.69.0`
+  carry those states; only this release was published.
 
 ## [1.66.0] - 2026-10-31
 
@@ -98,6 +92,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `LucideIcon` enum, `LucideSvgIcon` component, and `LucideIconFactory`
   with bundled Lucide SVG assets.
 
+[1.70.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.66.0...v1.70.0
 [1.66.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.61.0...v1.66.0
 [1.61.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.41.0...v1.61.0
 [1.41.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.28.0...v1.41.0
