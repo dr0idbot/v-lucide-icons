@@ -78,6 +78,22 @@ trigger the release workflow); those artifacts are never published. Maven
 Central keeps previously released version numbers disabled forever, so this
 also preserves the skipped upstream numbers for any future true release.
 
+#### Troubleshooting: Release workflow did not start
+
+Pushing the release tag bundled together with other refs (branch + several
+tags in one `git push`) can swallow the Release workflow trigger. If no run
+appears under Actions within a couple of minutes, delete and re-push the tag
+by itself (safe while nothing has consumed it, i.e. before any artifacts are
+released):
+
+```bash
+git push origin :refs/tags/v<version>
+git push origin v<version>
+```
+
+A fresh tag push event reliably triggers the workflow (the repo tag and its
+commit do not change).
+
 ### 6. Publication
 
 Pushing the `v*` tag triggers `.github/workflows/release.yml`, which builds,
