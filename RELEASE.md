@@ -56,15 +56,27 @@ curl -s -o /dev/null -w "%{http_code}" https://repo1.maven.org/maven2/io/github/
 
 ```bash
 git commit -am "Sync icons with lucide-static <version>"
-git tag -v<version> -m "Release v<version> (lucide-static <version> sync)"
+git tag -av<version> -m "Release v<version> (lucide-static <version> sync)"
 # GPG-signed variant if the key passphrase is available locally:
-#   git tag -sv<version> -m "..."
+#   git tag -asv<version> -m "..."
 git push origin master
 git push origin v<version>
 ```
 
 Do not mix the icon sync with unrelated changes; the release commit should
 contain only generated files + version + docs.
+
+#### Incremental sync snapshots (not releases)
+
+When syncing several upstream releases at once, sync them one by one and
+commit each step, but only tag the **final** commit `v<version>` — that is
+the sole release (the Release workflow triggers on `v*` tags and publishes
+to Maven Central, where releases are immutable). Intermediate sync commits
+may carry the intermediate version number in `pom.xml` and an annotated
+snapshot tag named `lucide-<version>` (note: no `v` prefix, so it cannot
+trigger the release workflow); those artifacts are never published. Maven
+Central keeps previously released version numbers disabled forever, so this
+also preserves the skipped upstream numbers for any future true release.
 
 ### 6. Publication
 

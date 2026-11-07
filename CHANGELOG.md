@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.66.0] - 2026-10-31
 
 ### Changed
 
@@ -88,7 +88,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `LucideIcon` enum, `LucideSvgIcon` component, and `LucideIconFactory`
   with bundled Lucide SVG assets.
 
-[Unreleased]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.61.0...HEAD
+[1.66.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.61.0...v1.66.0
 [1.61.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.41.0...v1.61.0
 [1.41.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.28.0...v1.41.0
 [1.28.0]: https://github.com/dr0idbot/v-lucide-icons/releases/tag/v1.28.0
