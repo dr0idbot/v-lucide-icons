@@ -94,6 +94,25 @@ git push origin v<version>
 A fresh tag push event reliably triggers the workflow (the repo tag and its
 commit do not change).
 
+#### Troubleshooting: Central rejects signatures ("public key not found")
+
+The signing key's public half must be retrievable from
+`keyserver.ubuntu.com` (the only keyserver this project has ever used).
+After `gpg --send-keys <fingerprint>` the key can take several minutes to
+propagate — it may even serve briefly and then 404 while the server
+converges. Before blaming the key, verify the server really returns it and
+that it parses back to the same fingerprint:
+
+```bash
+curl -s "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x<fpr>" \
+  | gpg --show-keys --with-colons -
+```
+
+If it does not, re-send the key (`gpg --send-keys <fingerprint>`), wait a
+few minutes, and re-run the failed workflow. A "Bad passphrase" failure of
+`maven-gpg-plugin` means the `GPG_PASSPHRASE` secret does not match the
+passphrase of the key in `GPG_PRIVATE_KEY`.
+
 ### 6. Publication
 
 Pushing the `v*` tag triggers `.github/workflows/release.yml`, which builds,
