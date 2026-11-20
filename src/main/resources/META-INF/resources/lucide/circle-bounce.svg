@@ -1,0 +1,8 @@
+<svg
+  class="lucide lucide-circle-bounce"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+>
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="M2 13c2.5.5 5 4 5 8 0-2.16 1.813-7.536 6-11.293" />
+  <circle fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" cx="19" cy="6" r="3" />
+</svg>

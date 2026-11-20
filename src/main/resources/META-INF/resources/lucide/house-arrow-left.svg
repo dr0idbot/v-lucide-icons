@@ -1,0 +1,10 @@
+<svg
+  class="lucide lucide-house-arrow-left"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+>
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="M12.343 21H5a2 2 0 01-2-2v-9a2 2 0 01.709-1.527l7-6a2 2 0 012.582 0l7 6A2 2 0 0121 10.001v2.354" />
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="m18 15-3 3" />
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="M21 18h-6l3 3" />
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="M9 21v-8a1 1 0 011-.999h4a1 1 0 01.857.485" />
+</svg>
