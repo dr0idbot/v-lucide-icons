@@ -15,7 +15,7 @@ Renders icons through the native `<vaadin-icon>` web component via Vaadin's `Svg
 <dependency>
     <groupId>io.github.dr0idbot</groupId>
     <artifactId>v-lucide-icons</artifactId>
-    <version>1.74.0</version>
+    <version>1.75.0</version>
 </dependency>
 ```
 
@@ -60,7 +60,7 @@ into the `<vaadin-icon>` shadow DOM on Vaadin 24.x and 25.x alike.
 
 ### Public Types
 
-- **`LucideIcon`** — enum of all 2,401 Lucide icons (lucide-static **1.74.0**)
+- **`LucideIcon`** — enum of all 2,403 Lucide icons (lucide-static **1.75.0**)
 - **`LucideSvgIcon`** — extends Vaadin's `SvgIcon`
 - **`LucideIconFactory`** — creates and validates icon instances
 - **`LucideLineCap`** / **`LucideLineJoin`** — stroke cap and join shapes
@@ -82,7 +82,7 @@ python3 scripts/generate_icons.py --version <lucide-static-version>
 - Run it, commit the regenerated files, and release as noted below.
 
 A release's version always mirrors the upstream `lucide-static` version from
-which its icons are sourced (e.g. add-on `1.74.0` = Lucide `1.74.0` assets).
+which its icons are sourced (e.g. add-on `1.75.0` = Lucide `1.75.0` assets).
 See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
