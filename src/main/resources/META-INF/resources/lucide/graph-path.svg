@@ -1,0 +1,13 @@
+<svg
+  class="lucide lucide-graph-path"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+>
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="m10.628 11.163 3.744 2.674" />
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="m16.895 13.21 2.21-4.42" />
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="m5.163 15.372 2.674-3.744" />
+  <circle fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" cx="16" cy="15" r="2" />
+  <circle fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" cx="20" cy="7" r="2" />
+  <circle fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" cx="4" cy="17" r="2" />
+  <circle fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" cx="9" cy="10" r="2" />
+</svg>

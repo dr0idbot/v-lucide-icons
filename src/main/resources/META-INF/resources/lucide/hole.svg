@@ -1,0 +1,8 @@
+<svg
+  class="lucide lucide-hole"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+>
+  <path fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" d="M2.57 14a10 6 0 0 1 18.86 0" />
+  <ellipse fill="var(--lucide-fill, none)" stroke="currentColor" stroke-width="var(--vaadin-icon-stroke-width, 2)" stroke-linecap="var(--lucide-stroke-linecap, round)" stroke-linejoin="var(--lucide-stroke-linejoin, round)" cx="12" cy="12" rx="10" ry="6" />
+</svg>

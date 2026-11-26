@@ -2,6 +2,7 @@
 
 ### Changed
 
+- Synced icon set with `lucide-static` 1.78.0 (2,414 icons; 4 icons added, no artwork changes, none removed).
 - Synced icon set with `lucide-static` 1.77.0 (2,410 icons; 6 icons added, artwork of 5 existing icons changed, none removed).
 
 ## [1.76.0] - 2026-11-20
