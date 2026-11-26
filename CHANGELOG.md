@@ -1,7 +1,8 @@
-## [Unreleased]
+## [1.80.0] - 2026-11-26
 
 ### Changed
 
+- Synced icon set with `lucide-static` 1.80.0 (2,431 icons; 15 icons added, artwork of 2 existing icons changed, none removed).
 - Synced icon set with `lucide-static` 1.79.0 (2,416 icons; 2 icons added, no artwork changes, none removed).
 - Synced icon set with `lucide-static` 1.78.0 (2,414 icons; 4 icons added, no artwork changes, none removed).
 - Synced icon set with `lucide-static` 1.77.0 (2,410 icons; 6 icons added, artwork of 5 existing icons changed, none removed).
@@ -116,6 +117,7 @@
 - `LucideIcon` enum, `LucideSvgIcon` component, and `LucideIconFactory`
   with bundled Lucide SVG assets.
 
+[1.80.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.76.0...v1.80.0
 [1.76.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.73.0...v1.76.0
 [1.73.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.70.0...v1.73.0
 [1.70.0]: https://github.com/dr0idbot/v-lucide-icons/compare/v1.66.0...v1.70.0
