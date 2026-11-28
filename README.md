@@ -65,25 +65,14 @@ into the `<vaadin-icon>` shadow DOM on Vaadin 24.x and 25.x alike.
 - **`LucideIconFactory`** — creates and validates icon instances
 - **`LucideLineCap`** / **`LucideLineJoin`** — stroke cap and join shapes
 
-## Updating Icons
+## Contributing
 
-The icon set, `LucideIcon` enum, and `NOTICE` are regenerated with a single
-script. No Node.js, npm, Maven, or external tool repositories are required —
-only Python 3.10+ (standard library only):
+Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for the
+local build and the icon regeneration workflow, and [RELEASE.md](RELEASE.md)
+for the maintainer release procedure.
 
-```bash
-python3 scripts/generate_icons.py --version <lucide-static-version>
-```
-
-- Downloads the exact versioned `lucide-static` tarball from the npm registry.
-- Rewrites `src/main/resources/META-INF/resources/lucide/*.svg`,
-  `src/main/java/io/github/dr0idbot/vlucide/LucideIcon.java`, and `NOTICE`
-  deterministically; stale icons are removed automatically.
-- Run it, commit the regenerated files, and release as noted below.
-
-A release's version always mirrors the upstream `lucide-static` version from
+The add-on version always mirrors the upstream `lucide-static` version from
 which its icons are sourced (e.g. add-on `1.83.0` = Lucide `1.83.0` assets).
-See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 

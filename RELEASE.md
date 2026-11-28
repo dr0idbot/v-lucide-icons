@@ -80,38 +80,14 @@ also preserves the skipped upstream numbers for any future true release.
 
 #### Troubleshooting: Release workflow did not start
 
-Pushing the release tag bundled together with other refs (branch + several
-tags in one `git push`) can swallow the Release workflow trigger. If no run
-appears under Actions within a couple of minutes, delete and re-push the tag
-by itself (safe while nothing has consumed it, i.e. before any artifacts are
-released):
+If no workflow run appears after pushing the `v*` tag (for example when the
+tag was pushed together with other refs), delete and re-push the tag by
+itself (safe while no artifacts have been released):
 
 ```bash
 git push origin :refs/tags/v<version>
 git push origin v<version>
 ```
-
-A fresh tag push event reliably triggers the workflow (the repo tag and its
-commit do not change).
-
-#### Troubleshooting: Central rejects signatures ("public key not found")
-
-The signing key's public half must be retrievable from
-`keyserver.ubuntu.com` (the only keyserver this project has ever used).
-After `gpg --send-keys <fingerprint>` the key can take several minutes to
-propagate — it may even serve briefly and then 404 while the server
-converges. Before blaming the key, verify the server really returns it and
-that it parses back to the same fingerprint:
-
-```bash
-curl -s "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x<fpr>" \
-  | gpg --show-keys --with-colons -
-```
-
-If it does not, re-send the key (`gpg --send-keys <fingerprint>`), wait a
-few minutes, and re-run the failed workflow. A "Bad passphrase" failure of
-`maven-gpg-plugin` means the `GPG_PASSPHRASE` secret does not match the
-passphrase of the key in `GPG_PRIVATE_KEY`.
 
 ### 6. Publication
 
@@ -119,6 +95,10 @@ Pushing the `v*` tag triggers `.github/workflows/release.yml`, which builds,
 tests, signs with the stored GPG key, and publishes to Maven Central
 (`central-publishing-maven-plugin`, autoPublish).
 
+- The signing key's public half must be published on
+  `keyserver.ubuntu.com`; if Central rejects a deployment with a missing
+  public key, re-send it (`gpg --send-keys <fingerprint>`) and retry after
+  propagation.
 - Monitor the workflow run in GitHub Actions.
 - Verify at <https://repo1.maven.org/maven2/io/github/dr0idbot/v-lucide-icons/<version>/>
   (propagation can take from minutes to a couple of hours).
