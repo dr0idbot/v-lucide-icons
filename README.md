@@ -3,7 +3,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.dr0idbot/v-lucide-icons)](https://central.sonatype.com/artifact/io.github.dr0idbot/v-lucide-icons)
 [![CI](https://github.com/dr0idbot/v-lucide-icons/actions/workflows/ci.yml/badge.svg)](https://github.com/dr0idbot/v-lucide-icons/actions/workflows/ci.yml)
 
-Server-side [Lucide](https://lucide.dev) icon integration for **Vaadin 24.2+ and Vaadin 25+**, **Java 17+** (Java 21 is required when using Vaadin 25, matching the Vaadin platform's own requirement).
+Server-side [Lucide](https://lucide.dev) icon integration for **Vaadin 24.2+**, **Java 17+**.
 
 Renders icons through the native `<vaadin-icon>` web component via Vaadin's `SvgIcon` class. SVGs are served as static classpath resources — no inline SVG injection.
 
@@ -56,7 +56,7 @@ Customization is implemented via CSS custom properties
 (`--vaadin-icon-stroke-width`, `--lucide-fill`, `--lucide-stroke-linecap`,
 `--lucide-stroke-linejoin`) that override the var()-parameterized paint
 attributes baked into the generated SVG files; the property values inherit
-into the `<vaadin-icon>` shadow DOM on Vaadin 24.x and 25.x alike.
+into the `<vaadin-icon>` shadow DOM.
 
 ### Public Types
 
